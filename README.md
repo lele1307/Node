@@ -1,4 +1,9 @@
 # Node
+
+## [ES6](/ES6+Algorithm/ES6.md)
+
+## [Algorithm](/ES6+Algorithm/Algo.md)
+
 ## Day 1
 
 ### Node read/write files
