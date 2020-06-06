@@ -1,8 +1,8 @@
 # Node
 
-## [ES6](/ES6+Algorithm/ES6.md)
+## [ES6](/Notes/ES6.md)
 
-## [Algorithm](/ES6+Algorithm/Algo.md)
+## [Algorithm](/Notes/Algo.md)
 
 ## Day 1
 
