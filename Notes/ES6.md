@@ -44,3 +44,91 @@ ES6 明确规定，如果区块中存在let和const命令，则这个区块对�
     - Set.prototype.delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
     - Set.prototype.has(value)：返回一个布尔值，表示该值是否为Set的成员。
     - Set.prototype.clear()：清除所有成员，没有返回值。
+
+## [Array](https://es6.ruanyifeng.com/?search=map&x=0&y=0#docs/array)
+
+- Array.of() 用于将一组值，转换为数组
+- keys()是对键名的遍历、values()是对键值的遍历，entries()
+  ```js
+    for (let index of ['a', 'b'].keys()) {
+      console.log(index);
+    }
+    // 0
+    // 1
+
+  for (let elem of ['a', 'b'].values()) {
+    console.log(elem);
+  }
+    // 'a'
+    // 'b'
+
+  for (let [index, elem] of ['a', 'b'].entries()) {
+    console.log(index, elem);
+  }
+    // 0 "a"
+    // 1 "b"
+  ```
+- [from()](https://es6.ruanyifeng.com/?search=map&x=0&y=0#docs/array#Array-from) 用于将两类对象转为真正的数组
+  ```js
+  Array.from(arrayLike, x => x * x);
+  // 等同于
+  Array.from(arrayLike).map(x => x * x);
+
+  Array.from([1, 2, 3], (x) => x * x)
+  // [1, 4, 9]
+  ```
+- fill() 使用给定值，填充一个数组
+  ```js
+  ['a', 'b', 'c'].fill(7)
+  // [7, 7, 7]
+
+  new Array(3).fill(7)
+  // [7, 7, 7]
+  ```
+
+- copyWithin() 在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组。也就是说，使用这个方法，会修改当前数组
+  
+  target（必需）：从该位置开始替换数据。如果为负值，表示倒数。
+
+  start（可选）：从该位置开始读取数据，默认为 0。如果为负值，表示从末尾开始计算。
+
+  end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示从末尾开始计算。
+
+  ```js
+  // 将3号位复制到0号位
+  [1, 2, 3, 4, 5].copyWithin(0, 3, 4)
+  // [4, 2, 3, 4, 5]
+
+  // -2相当于3号位，-1相当于4号位
+  [1, 2, 3, 4, 5].copyWithin(0, -2, -1)
+  // [4, 2, 3, 4, 5]
+
+  // 将3号位复制到0号位
+  [].copyWithin.call({length: 5, 3: 1}, 0, 3)
+  // {0: 1, 3: 1, length: 5}
+
+  // 将2号位到数组结束，复制到0号位
+  let i32a = new Int32Array([1, 2, 3, 4, 5]);
+  i32a.copyWithin(0, 2);
+  // Int32Array [3, 4, 5, 4, 5]
+
+  // 对于没有部署 TypedArray 的 copyWithin 方法的平台
+  // 需要采用下面的写法
+  [].copyWithin.call(new Int32Array([1, 2, 3, 4, 5]), 0, 3, 4);
+  // Int32Array [4, 2, 3, 4, 5]
+  ```
+
+
+## [Iterator(遍历器) && for...of 迭代循环](https://es6.ruanyifeng.com/?search=map&x=0&y=0#docs/iterator)
+
+Iterator 的遍历过程:
+
+（1）创建一个指针对象，指向当前数据结构的起始位置。也就是说，遍历器对象本质上，就是一个指针对象。
+
+（2）第一次调用指针对象的next方法，可以将指针指向数据结构的第一个成员。
+
+（3）第二次调用指针对象的next方法，指针就指向数据结构的第二个成员。
+
+（4）不断调用指针对象的next方法，直到它指向数据结构的结束位置。
+
+每一次调用next方法，都会返回数据结构的当前成员的信息。具体来说，就是返回一个包含value和done两个属性的对象。其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。
