@@ -2,6 +2,33 @@
 
 ## [Array](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
+- 添加元素
+  - 末尾添加 
+    ```js
+    let num = [1,2,3]
+    num[num.length] = 4
+    
+    push()
+    ```
+  - 开头插入
+    ```js
+    unshift()
+    ```
+- 删除元素
+  - 删除开头元素
+    ```js
+    shift()
+    //shift & unshift 可以模拟队列数据结构
+    ```
+  - 删除末尾元素
+    ```js
+    pop() //pop、push可以数组模拟栈
+    ```
+  - 删除/插入指定元素 
+    ```js
+    splice(index, nums,insert exp1,exp2,...)
+    ```
+
 
 ## Math
 
