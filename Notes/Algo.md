@@ -11,3 +11,8 @@
 - 立方阶O(n³)
 - K次方阶O(n^k)
 - 指数阶(2^n)
+
+## 排序
+- BubbleSort\SelectionSort --O(n²)
+- InsertSort --O(n²)
+- mergeSort --O(nlogN) 分而治之（divide-and-conquer）&递归
