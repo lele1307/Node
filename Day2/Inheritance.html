@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance method</title>
+</head>
+<body>
+    <script>
+        function Father(username, age) {
+            this.name = username
+            this.age = age
+        }
+        Father.prototype.money = function(){
+            console.log("money!");
+        }
+        function Son(username,age,gender) {
+            //this 是Son中的this 指向其对象实例
+            Father.call(this,username,age);
+            this.gender = gender;
+        }
+        Son.prototype = new Father(); //继承了父类的原型对象
+        Son.prototype.constructor = Son; //指回Son构造函数
+        var instance = new Son("Amy",20,'female');
+        console.log(instance);
+        console.log(Father.prototype);
+        console.log(Son.prototype.constructor);
+    </script>
+</body>
+</html>
