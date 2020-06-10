@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepCopy</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            id:1,
+            name:'leier',
+            msg:{
+                msg1:'message1',
+                msg2:'message2'
+            },
+            color:['pink','red']
+        }
+        var o = {}
+        //Recursion for
+        function deepCopy(newObj,oldObj) {
+            for (const key in oldObj) {
+                let item = oldObj[key];
+                if(item instanceof Array){
+                    newObj[key] = [];
+                    deepCopy(newObj[key],item);
+                }else if (item instanceof Object) {
+                    newObj[key] = {};
+                    deepCopy(newObj[key],item);
+                }else{
+                    newObj[key] = item;
+                }
+            }
+        }
+        deepCopy(o,obj);
+        console.log(o);
+    </script>
+</body>
+</html>
