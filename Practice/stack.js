@@ -56,3 +56,31 @@ function decimalToBinary(decNum) {
 }
 
 console.log(decimalToBinary(233));
+
+function baseCoverter(decNum,base){
+    const remStack = new Stack;
+    const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    let num = decNum;
+    let rem;
+    let baseStr = '';
+
+    if (!(base>=2 && base<=36)) {
+        return '';
+    }
+
+    while (num>0) {
+        rem = Math.floor(num % base);
+        remStack.push(rem);
+        num = Math.floor(num /base);
+    }
+
+    while (!remStack.isEmpty()){
+        baseStr += digits[remStack.pop()];
+    }
+
+    return baseStr;
+}
+
+console.log(baseCoverter(100345,8));
+console.log(baseCoverter(100345,16));
+console.log(baseCoverter(100345,35));
