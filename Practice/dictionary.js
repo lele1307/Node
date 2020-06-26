@@ -46,4 +46,39 @@ class Dictionary {
         }
         return false;
     }
+
+    get(key){
+        const valuePair = this.table[this.toStrFn(key)];
+        return valuePair == null ? undefined : valuePair.val;
+    }
+
+    keyValues(){
+        const valuePair = [];
+        for (var k in this.table) {
+            if (this.table.hasOwnProperty(k)) {
+                valuePair.push(this.table[k])
+            }
+        }
+        return valuePair;
+    }
+
+    keys(){
+        return this.keyValues().map(valuePair => valuePair.key)
+    }
+
+    values(){
+        return this.keyValues().map(valuePair => valuePair.val)
+    }
+
+    size(){
+        return Object.keys(this.table).length;
+    }
+
+    isEmpty(){
+        return this.size() === 0;
+    }
+
+    clear(){
+        this.table = {};
+    }
 }
