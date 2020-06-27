@@ -8,5 +8,14 @@ class AVLTree extends BinarySearchTree {
         this.root = null;
     }
 
+    getNodeHeight(){
+        if (node == null) {
+            return -1;
+        }
+        return Math.max(
+            node.getNodeHeight(node.left),node.getNodeHeight(node.right)
+        )+1;
+    }
+
 
 }
