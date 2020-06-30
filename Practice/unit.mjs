@@ -15,7 +15,7 @@ export function biggerEquals(a, b, compareFn) {
     const comp = compareFn(a, b);
     return comp === Compare.BIGGER_THAN || comp === Compare.EQUALS;
 }
-  
+
 export function defaultCompare(a, b) {
     if (a === b) {
         return Compare.EQUALS;
@@ -51,4 +51,18 @@ export function reverseCompare(compareFn) {
 
 export function defaultDiff(a, b) {
     return Number(a) - Number(b);
+}
+
+export const Color = {
+    WHITE: 0,
+    GREY: 1,
+    BLACK: 2
+}
+
+export function initColor(vertices){
+    const color = {};
+    for (let i = 0; i < vertices.length; i++) {
+        color[vertices[i]] = Color.WHITE;
+    }
+    return color;
 }

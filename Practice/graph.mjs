@@ -1,5 +1,8 @@
 import { Dictionary } from './dictionary.mjs'
-class Graph {
+import { initColor,Color } from './unit.mjs'
+import { Queue } from './queue.mjs'
+import { Stack } from './stack.mjs'
+export class Graph {
     constructor(isDirected = false) {
         this.isDirected = isDirected;
         this.vertices = []; //顶点
@@ -65,3 +68,89 @@ graph.addEdge('B','F');
 graph.addEdge('E','I');
 
 console.log(graph.toString());
+console.log('-----------------------');
+
+/**
+*  BFS -> Queue
+*  DFS -> Stack
+*/
+export const breadthFirstSearch = (graph, startVertex, callback) => {
+    const vertices = graph.getVertices();
+    const adjList = graph.getAdjList();
+    const color = initColor(vertices);
+    const queue = new Queue();
+    queue.enqueue(startVertex);
+
+    while(!queue.isEmpty()){
+        const u = queue.dequeue();
+        const neighbors = adjList.get(u);
+        color[u] = Color.GRAY;
+        for (let i = 0; i < neighbors.length; i++) {
+            const w = neighbors[i];
+            if (color[w] === Color.WHITE) {
+                color[w] = Color.GRAY;
+                queue.enqueue(w);
+            }
+        }
+        color[u] = Color.BLACK;
+        if(callback){
+            callback(u);
+        }
+    }
+}
+
+const printVertex = (value) => console.log('Visited Vertex: ' + value);
+breadthFirstSearch(graph,myVertices[0],printVertex);
+
+const BFS = (graph,startVertex) => {
+    const vertices = graph.getVertices();
+    const adjList = graph.getAdjList();
+    const color = initColor(vertices);
+    const queue = new Queue();
+    const distances = {};
+    const predecessors = {}; //前溯点
+    queue.enqueue(startVertex);
+
+    for (let i = 0; i < vertices.length; i++) {
+        distances[vertices[i]] = 0;
+        predecessors[vertices[i]] = null;
+    }
+
+    while(!queue.isEmpty()){
+        const u = queue.dequeue();
+        const neighbors = adjList.get(u);
+        color[u] = Color.GRAY;
+        for (let i = 0; i < neighbors.length; i++) {
+            const w = neighbors[i];
+            if (color[w] === Color.WHITE) {
+                color[w] = Color.GRAY;
+                distances[w] = distances[u]+1;
+                predecessors[w] = u;
+                queue.enqueue(w);
+            }
+        }
+        color[u] = Color.BLACK;
+    }
+    return {
+        distances,
+        predecessors
+    };
+}
+const shortestPathA = BFS(graph,myVertices[0]);
+console.log(shortestPathA);
+console.log('-----------------------');
+
+const fromVertex = myVertices[0];
+for (let i = 1; i < myVertices.length; i++) {
+    const toVertex = myVertices[i];
+    const path = new Stack();
+    for (let v = toVertex; v !== fromVertex; v=shortestPathA.predecessors[v]) {
+        path.push(v);
+    }
+    path.push(fromVertex);
+    let s = path.pop();
+    while(!path.isEmpty()){
+        s+= ' - ' + path.pop()    
+    }
+    console.log(s);
+}
