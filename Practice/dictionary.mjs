@@ -9,7 +9,7 @@ function defaultTosString(item){
     return item.toString();
 }
 
-export default class ValuePair{
+export class ValuePair{
     constructor(key,val){
         this.key = key;
         this.val = val;
@@ -19,7 +19,7 @@ export default class ValuePair{
     }
 }
 
-export default class Dictionary {
+export class Dictionary {
     constructor(toStrFn = defaultTosString) {
         this.toStrFn = toStrFn;
         this.table = {};//table[key] = {key,val} 
