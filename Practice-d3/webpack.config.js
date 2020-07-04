@@ -3,11 +3,13 @@ const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 var BUILD_PATH = path.resolve(__dirname, 'dist');
 module.exports = {
-    entry: './intro/index.js',
+    entry: {
+        intro:'./bar/index.js',
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(), 
         new htmlWebpackPlugin({ 
-            template: path.join(__dirname, './intro/index.html'), 
+            template: path.join(__dirname, './bar/index.html'), 
             filename: 'index.html'
         })
     ],
@@ -35,7 +37,7 @@ module.exports = {
     devServer: { 
         open: true, 
         port: 3000, 
-        contentBase: 'intro'
+        contentBase: 'bar'
     },
     output: {
         filename: 'bundle.js',
