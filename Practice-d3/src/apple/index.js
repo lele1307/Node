@@ -1,5 +1,5 @@
 import '../css/apple.css';
-import { select,range } from 'd3';
+import { select,range,scaleOrdinal } from 'd3';
 
 const svg = select('svg');
 const width = +svg.attr('width');
@@ -12,12 +12,23 @@ const render = (selection,{fruits}) => {
     selection.append - 创建、添加并返回一个新的元素.
     */
     const circles = selection.selectAll('circle').data(fruits);
-    
+    const colorScale = scaleOrdinal()
+        .domain(['apple','lemon'])
+        .range(['#c11d1d','yellow']);
+    const radiusScale = scaleOrdinal()
+        .domain(['apple','lemon'])
+        .range([50,30]);
+
     circles.enter().append('circle')
             .attr('cx',(d,i)=> i*120+60)
             .attr('cy',height/2)
-            .attr('r',50)
-            .attr('fill','#c11d1d');
+            .attr('r',d=>radiusScale(d.type))
+            .attr('fill',d=>colorScale(d.type));
+
+    circles //自己本身就是update
+        .attr('r',d=>radiusScale(d.type))
+        .attr('fill',d=>colorScale(d.type));
+
     /* circles.exit().attr('fill','black'); */
     circles.exit().remove();
 }
@@ -32,6 +43,12 @@ setTimeout(() => {
     fruits.pop();
     render(svg , {fruits});
 },5000)
+
+//update apple to lemon
+setTimeout(() => {
+    fruits[2].type = 'lemon';
+    render(svg , {fruits});
+},3000)
 
 
 
