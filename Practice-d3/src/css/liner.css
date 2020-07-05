@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    overflow: scroll;
+}
+
+.line-path1{
+    fill: none;
+    stroke: maroon;
+    stroke-width: 5;
+    stroke-linejoin: round; 
+}
+
+.line-path2{
+    fill: maroon;
+}
+
+text {
+    font-size: 2em;
+    font-family: sans-serif;
+}
+
+.tick text {
+    font-size: 1.5em;
+    fill:#635F5D;
+}
+
+.tick line {
+    stroke: #C0C0BB ;
+}
+
+.axis-label {
+    font-size: 1.3em;
+    fill: #8E8883;
+}
+
+.title {
+    font-size: 2.5em;
+    fill: #635F5D;
+    text-anchor: middle;
+}
