@@ -4,12 +4,12 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 var BUILD_PATH = path.resolve(__dirname, 'dist');
 module.exports = {
     entry: {
-        intro:'./bar/index.js',
+        intro:'./scatter/index.js',
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(), 
         new htmlWebpackPlugin({ 
-            template: path.join(__dirname, './bar/index.html'), 
+            template: path.join(__dirname, './scatter/index.html'), 
             filename: 'index.html'
         })
     ],
@@ -37,7 +37,7 @@ module.exports = {
     devServer: { 
         open: true, 
         port: 3000, 
-        contentBase: 'bar'
+        contentBase: 'scatter'
     },
     output: {
         filename: 'bundle.js',
