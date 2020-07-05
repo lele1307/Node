@@ -1,15 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const packageName = 'apple';
 var BUILD_PATH = path.resolve(__dirname, 'dist');
 module.exports = {
     entry: {
-        intro:'./src/liner/index.js',
+        intro:`./src/${packageName}/index.js`,
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(), 
         new htmlWebpackPlugin({ 
-            template: path.join(__dirname, './src/liner/index.html'), 
+            template: path.join(__dirname, `./src/${packageName}/index.html`), 
             filename: 'index.html'
         })
     ],
