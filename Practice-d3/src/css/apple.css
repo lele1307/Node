@@ -2,3 +2,9 @@ body {
     margin: 0;
     overflow: hidden;
 }
+
+text {
+    font-size: 1em;
+    text-anchor: middle;
+    font-family: sans-serif;
+}
