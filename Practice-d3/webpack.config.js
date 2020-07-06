@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const packageName = 'apple';
+const packageName = 'click_apple';
 var BUILD_PATH = path.resolve(__dirname, 'dist');
 module.exports = {
     entry: {
