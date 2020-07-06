@@ -2,3 +2,13 @@ body {
     margin: 0;
     overflow: scroll;
 }
+
+.sphere{
+    fill:darkblue;
+}
+
+.country {
+    fill: lightgreen;
+    stroke: black;
+    stroke-opacity: 0.3;
+}
