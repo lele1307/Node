@@ -10,5 +10,8 @@ body {
 .country {
     fill: lightgreen;
     stroke: black;
-    stroke-opacity: 0.3;
+    stroke-width: 0.05px;
+}
+.country:hover{
+    fill: darkcyan;
 }
