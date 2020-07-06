@@ -16,13 +16,19 @@ const onClick = id => {
     render();
 }
 
+const setSelectedFruit = id => {
+    selectedFruit = id;
+    render();
+}
+
 const render = () => {
     console.log('selectedFruit: '+selectedFruit);
     fruitBowl(svg,{
         fruits,
         height:+svg.attr('height'),
         onClick,
-        selectedFruit
+        selectedFruit,
+        setSelectedFruit
     })
 };
 

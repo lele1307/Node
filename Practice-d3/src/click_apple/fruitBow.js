@@ -9,7 +9,9 @@ const radiusScale = scaleOrdinal()
 
 const xPosition = (d,i)=> i*120+60;
 
-export const fruitBowl = (selection,{fruits,height,onClick,selectedFruit}) => {
+export const fruitBowl = (selection,{
+    fruits,height,onClick,selectedFruit,setSelectedFruit
+}) => {
     /**
     selection.data - 将元素与数据绑定.
     selection.enter - 获取需要插入的选择集(数据个数大于元素个数)的占位符.
@@ -38,7 +40,9 @@ export const fruitBowl = (selection,{fruits,height,onClick,selectedFruit}) => {
             .attr('stroke',d => 
                 d.id === selectedFruit ? 'black' : 'none'
             )
-            .on('click',d => onClick(d.id))
+            //.on('click',d => onClick(d.id))
+            .on('mouseover',d => setSelectedFruit(d.id))
+            .on('mouseout',() => setSelectedFruit(null))
         .transition().duration(1000)
             .attr('cx',xPosition)
             .attr('r',d=>radiusScale(d.type));
