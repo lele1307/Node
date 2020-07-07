@@ -68,7 +68,7 @@ import {
             .attr('y',-10)
             .text('Top 10 Most Populous Countries');
     }
-    csv('data.csv').then(data =>{
+    csv('../../static/data.csv').then(data =>{
         data.forEach(d =>{
             d.population = +d.population * 1000
         })

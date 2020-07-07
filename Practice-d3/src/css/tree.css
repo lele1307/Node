@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+    overflow:hidden;
+}
+
+path{
+    fill:none;
+    stroke: #4fb9b5;
+}
+
+text {
+    /* This trick adds a heavy white shadow around the text. */
+    text-shadow:
+    -1px -1px 3px white,
+    -1px  1px 3px white,
+    1px -1px 3px white,
+    1px  1px 3px white;
+    pointer-events: none;
+    font-family: "Open Sans", sans-serif;
+}

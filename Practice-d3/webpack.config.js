@@ -1,12 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const packageName = 'map';
+const packageName = 'tree';
 var BUILD_PATH = path.resolve(__dirname, 'dist');
 module.exports = {
-    entry: {
-        intro:`./src/${packageName}/index.js`,
-    },
+    entry: `./src/${packageName}/index.js`,
     plugins: [
         new webpack.HotModuleReplacementPlugin(), 
         new htmlWebpackPlugin({ 
@@ -37,8 +35,7 @@ module.exports = {
     },
     devServer: { 
         open: true, 
-        port: 3000, 
-        contentBase: 'liner'
+        port: 3000
     },
     output: {
         filename: 'bundle.js',
