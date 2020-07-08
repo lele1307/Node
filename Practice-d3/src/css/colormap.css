@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    overflow: scroll;
+}
+
+.sphere{
+    fill:darkblue;
+}
+
+.country {
+    stroke: black;
+    stroke-width: 0.05px;
+}
+.country:hover{
+    fill: darkcyan;
+}
+
+.tick text{
+    font-size: 1em;
+    fill: #635F5D;
+    font-family: sans-serif;
+}
+
+.tick circle {
+    stroke: black;
+    stop-opacity: 0.5;
+}

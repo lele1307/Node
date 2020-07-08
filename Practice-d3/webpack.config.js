@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const packageName = 'tree';
+const packageName = 'colormap';
 var BUILD_PATH = path.resolve(__dirname, 'dist');
 module.exports = {
     entry: `./src/${packageName}/index.js`,
