@@ -4,7 +4,7 @@
 
 ## [Algorithm](/Notes/Algo.md)
 
-## Day 1
+## NODE
 
 ### Node read/write files
 - [readTXT](Day1/readtxt.js)
@@ -35,3 +35,10 @@ text/html --- .html
 image/jpeg --- .jpg utf-8 is not necessary
 
 [Content-Type](https://tool.oschina.net/commons)
+
+
+## D3.js
+
+[Course RE](https://github.com/curran/dataviz-course-2018)
+
+[VIZHUB](https://vizhub.com/)
