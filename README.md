@@ -1,4 +1,4 @@
-# Node
+# Practice
 
 ## [ES6](/Notes/ES6.md)
 
