@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const packageName = 'colormap';
+const packageName = 'interactmap';
 var BUILD_PATH = path.resolve(__dirname, 'dist');
 module.exports = {
     entry: `./src/${packageName}/index.js`,

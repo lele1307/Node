@@ -15,6 +15,15 @@ body {
     fill: darkcyan;
 }
 
+.country.highlighted {
+    stroke: black;
+    stroke-width: 1px;
+}
+
+.tick {
+    cursor: pointer;
+}
+
 .tick text{
     font-size: 1em;
     fill: #635F5D;
